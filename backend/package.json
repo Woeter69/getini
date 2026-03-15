@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "bun --watch src/index.ts",
     "start": "bun src/index.ts",
-    "build": "echo 'No build step for backend'"
+    "build": "bun build ./src/index.ts --outfile ./dist/index.js --target bun"
   },
   "devDependencies": {
     "@types/bun": "latest",
