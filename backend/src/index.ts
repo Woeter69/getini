@@ -21,6 +21,11 @@ app.get('/api/health', (req, res) => {
   res.send('OK');
 });
 
-app.listen(port, () => {
-  console.log(`Backend server starting on port ${port}...`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production' && !process.env.CF_PAGES) {
+  app.listen(port, () => {
+    console.log(`Backend server starting on port ${port}...`);
+  });
+}
+
+export default app;
