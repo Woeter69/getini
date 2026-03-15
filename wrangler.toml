@@ -1,7 +1,7 @@
 name = "getini"
+main = "backend/src/index.ts"
 compatibility_date = "2024-03-01"
-pages_build_output_dir = "frontend/dist"
 
-[site]
-bucket = "./frontend/dist"
-entry-point = "backend/src/index.ts"
+[assets]
+directory = "./frontend/dist"
+binding = "ASSETS"
