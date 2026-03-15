@@ -272,7 +272,7 @@ export const Terminal: React.FC = () => {
 
   return (
     <div 
-      className="glass" 
+      className="glass-dark" 
       onClick={() => inputRef.current?.focus({ preventScroll: true })}
       style={{ 
         width: '100%', 
@@ -286,7 +286,8 @@ export const Terminal: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         fontFamily: "'JetBrains Mono', monospace",
-        fontSize: '0.9rem'
+        fontSize: '0.9rem',
+        border: '1px solid rgba(255, 255, 255, 0.1)'
       }}
     >
       {/* Fixed Header */}
@@ -301,7 +302,6 @@ export const Terminal: React.FC = () => {
         <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }} />
         <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }} />
         <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }} />
-        <div style={{ marginLeft: 'auto', color: 'var(--muted)', fontSize: '0.7rem', opacity: 0.5 }}>getini — bash</div>
       </div>
       
       {/* Scrollable Content */}
