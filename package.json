@@ -2,12 +2,16 @@
   "name": "getini",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "concurrently -n \"frontend,backend\" -c \"blue,green\" \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
-    "build": "cd frontend && npm run build && cd backend && npm run build",
-    "install-all": "cd frontend && npm install && cd backend && npm install",
-    "backend": "cd backend && npm run dev",
-    "frontend": "cd frontend && npm run dev"
+    "dev": "concurrently -n \"frontend,backend\" -c \"blue,green\" \"bun run --cwd frontend dev\" \"bun run --cwd backend dev\"",
+    "build": "bun run --cwd frontend build && bun run --cwd backend build",
+    "install-all": "bun install",
+    "backend": "bun run --cwd backend dev",
+    "frontend": "bun run --cwd frontend dev"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
