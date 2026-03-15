@@ -1,0 +1,15 @@
+# Backend Build Stage
+FROM golang:1.26-alpine as build
+WORKDIR /app
+COPY backend/go.mod ./
+# COPY backend/go.sum ./ # If it exists
+RUN go mod download
+COPY backend/ ./
+RUN CGO_ENABLED=0 GOOS=linux go build -o main .
+
+# Backend Production Stage
+FROM alpine:latest
+WORKDIR /root/
+COPY --from=build /app/main .
+EXPOSE 8080
+CMD ["./main"]
