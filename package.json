@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "bun run install-all",
     "dev": "concurrently -n \"frontend,backend\" -c \"blue,green\" \"cd frontend && bun run dev\" \"cd backend && bun run dev\"",
-    "build": "cd frontend && bun run build && cd backend && bun run build",
+    "build": "(cd frontend && bun run build) && (cd backend && bun run build)",
     "install-all": "bun install --cwd frontend && bun install --cwd backend",
     "backend": "cd backend && bun run dev",
     "frontend": "cd frontend && bun run dev"
