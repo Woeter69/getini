@@ -28,4 +28,11 @@ if (process.env.NODE_ENV !== 'production' && !process.env.CF_PAGES) {
   });
 }
 
-export default app;
+// For Cloudflare Workers
+export default {
+  async fetch(request: Request, env: any, ctx: any) {
+    return app(request, env, ctx);
+  },
+};
+
+export { app };
