@@ -11,7 +11,11 @@ export const LanguageGrid: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8081/api/languages')
+    const apiUrl = process.env.NODE_ENV === 'production' 
+      ? '/api/languages' 
+      : 'http://localhost:8081/api/languages';
+    
+    fetch(apiUrl)
       .then(res => res.json())
       .then(data => {
         setLanguages(data);
